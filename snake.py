@@ -17,6 +17,13 @@ class Snake:
         for pos in STARTING_POS:
             self.add_seg(pos)
 
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
     def add_seg(self, pos):
         tim = Turtle(shape="square")
         tim.color("white")
